@@ -16,7 +16,7 @@ public class Main {
        
         int  n = 0;
         long s, d;
-        
+        boolean flag = true;
         Account a[] = null;
         System.out.println("Chọn 1 nếu muốn đăng nhập , chọn 2 nếu muốn đăng ký: ");
         int login = sc.nextInt();
@@ -30,9 +30,12 @@ public class Main {
              int password = sc.nextInt();
             
             //tai khoan quan ly
-            if(username == "daoninhthai"&& password == 1){
-                System.out.println("nhap");
-                
+            if(username.equals("daoninhthai")&& password == 1){
+                do {
+                System.out.println("Bạn chọn làm gì: ");
+                System.out.println("1.Nhập thông tin của các khách hàng\n"
+                    + "2.Xuất danh sách thông tin của các khách hàng\n" + "3.Nạp tiền\n" + "4.Rút tiền\n"
+                    + "Số khác để thoát");
                 int choice =sc.nextInt();
                 switch (choice) {
                    case 1:
@@ -46,7 +49,7 @@ public class Main {
                         }
                         break;
                     case 2:
-                        System.out.printf("%-10s %-20s %-20s\n", "Số TK", "Tên TK", "Số tiền trong TK");
+                        System.out.printf("Danh sách thông tin khách hàng:");
                         for (int i = 0; i < n; i++) {
                             a[i].display();
                         }
@@ -75,7 +78,7 @@ public class Main {
                             }
                         }
                         break;
-            }
+            }} while (flag);
         }
         if(username == "daoninhthai" && password == 2){
             int choice =sc.nextInt();
