@@ -7,14 +7,15 @@ public class User extends Account{
     public User(){
 
     }
-    public User(long account_number, String account_name, double balance,String username, String password, String name, String cmt) {
-        super(account_number, account_name, balance,username, password);
+    public User(long account_number, String account_name,double debt, double balance,String username, String password, String name, String cmt) {
+        super(account_number, account_name, balance,debt,username, password);
         this.name = name;
         this.cmt = cmt;
     }
    
     
-    public String getName() {
+   
+	public String getName() {
         return name;
     }
 

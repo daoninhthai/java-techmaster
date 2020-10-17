@@ -9,18 +9,16 @@ public class Main {
             sc.nextLine();
             System.out.println("Nhập tên tài khoản: ");
             acc.setAccount_name(sc.nextLine());
+            System.out.println("Nhập số dư: ");
             acc.setBalance(sc.nextDouble());
         }
     public static void main(String[] args) {
-        Account account1=new Account(131232, "DAO THAI", 100000,"thai1", "123");
-        
-        
-        
+        Account account1=new Account(131232, "DAO THAI", 100000,0,"thai1", "123");
        
         int  n = 0;
         long s, d;
         
-        boolean flag = true;
+        boolean quit = true;
         do{
         Account a[] = null;
         System.out.println("Chọn 1 nếu muốn đăng nhập , chọn 2 nếu muốn đăng ký: ");
@@ -43,6 +41,8 @@ public class Main {
                         + "2.Xuất danh sách thông tin của các khách hàng\n" 
                         + "3.Nạp tiền\n" 
                         + "4.Rút tiền\n"
+                        + "5.Vay tiền\n"
+                        + "6.Trả nợ\n"
                         + "0 để thoát\n"
                         +"---------------------------------");
                     int choice =sc.nextInt();
@@ -58,9 +58,9 @@ public class Main {
                             }
                             break;
                         case 2:
-                            System.out.printf("Danh sách thông tin khách hàng:");
+                            System.out.printf("Danh sách thông tin khách hàng:\n");
                             for (int i = 0; i < n; i++) {
-                                account1.display();
+                              
                                 a[i].display();
                             }
                             break;
@@ -88,12 +88,34 @@ public class Main {
                                 }
                             }
                             break;
+                        case 5:
+                            System.out.println("Nhập số tài khoản khách hàng cần vay tiền: ");
+                            s = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getAccount_number();
+                                if (s == d) {
+                                    System.out.println("Bạn chọn tài khoản: " + d);
+                                    a[i].loan();
+                                }
+                            }
+                        break;
+                        case 6:
+                            System.out.println("Nhập số tài khoản khách hàng cần trả nợ: ");
+                            s = sc.nextLong();
+                            for (int i = 0; i < n; i++) {
+                                d = a[i].getAccount_number();
+                                if (s == d) {
+                                    System.out.println("Bạn chọn tài khoản: " + d);
+                                    a[i].pay();
+                                }
+                            }
+                        break;
                         case 0:
-                            System.out.println("Bye");
-                            flag=false;
+                            
+                            quit=false;
                             break;
                 }
-            } while (flag);
+            } while (quit);
         }
         if(username.equals(account1.getUsername())  && password.equals(account1.getPassword())){
             
@@ -107,7 +129,9 @@ public class Main {
                     +"1.Xem thông tin tài khoản\n"
                     + "2.Nạp tiền\n" 
                     + "3.Rút tiền\n"
-                    + "0 để thoát\n"
+                    + "4.Vay tiền\n"
+                    + "5.Trả nợ\n"
+                    + "0.Để thoát\n"
                     +"---------------------------------");
                 int choice =sc.nextInt();
                 switch (choice) {
@@ -116,16 +140,24 @@ public class Main {
                         account1.display();
                         break;
                     case 2:
-                        System.out.println("Nạp tiền: ");
+                        System.out.println("::NẠP TIỀN::");
                         account1.deposit();
                         break;
                     case 3:
-                        System.out.println("Rút tiền: ");
+                        System.out.println("::RÚT TIỀN::");
                         account1.withdraw();
                     break;
+                    case 4:
+                        System.out.println("::VAY TIỀN::");
+                        account1.loan();
+                    break;
+                    case 5:
+                        System.out.println("::TRẢ NỢ::");
+                        account1.pay();
+                    break;
                     case 0:
-                        System.out.println("Bye");
-                        flag=false;
+                        
+                        quit=false;
                         break;
                     
                     default:
@@ -133,7 +165,7 @@ public class Main {
                         break;
                         
                 }
-            } while (flag);
+            } while (quit);
         }
         else{
             System.out.println("Sai tài khoản , mời chọn lại !");
@@ -165,6 +197,8 @@ public class Main {
                         +"1.Xem thông tin tài khoản\n"
                         + "2.Nạp tiền\n" 
                         + "3.Rút tiền\n"
+                        + "4.Vay tiền\n"
+                        + "5.Trả nợ\n"
                         + "0 để thoát\n"
                         +"---------------------------------");
                     int choice =sc.nextInt();
@@ -174,16 +208,24 @@ public class Main {
                             user.display();
                             break;
                         case 2:
-                            System.out.println("Nạp tiền: ");
+                            System.out.println("::NẠP TIỀN::");
                             user.deposit();
                             break;
                         case 3:
-                            System.out.println("Rút tiền: ");
+                            System.out.println("::RÚT TIỀN::");
                             user.withdraw();
                         break;
+                        case 4:
+                            System.out.println("::VAY TIỀN::");
+                            user.loan();
+                        break;
+                        case 5:
+                            System.out.println("::TRẢ NỢ::");
+                            user.pay();
+                        break;
                         case 0:
-                            System.out.println("Bye");
-                            flag=false;
+                            
+                            quit=false;
                             break;
                         
                         default:
@@ -191,13 +233,13 @@ public class Main {
                             break;
                             
                     }
-                } while (flag);
+                } while (quit);
             }
             else{
-                System.out.println("f");
+                System.out.println("Nhập sai");
             }
         }
-        } while (flag);     
+        } while (quit);     
        }
         
     }

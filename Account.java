@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 /**
@@ -11,16 +11,7 @@ public class Account {
     private double balance = 0;//số dư
     private String username;
     private String password;
-    // ArrayList<User> users;
-    
-    
-    // public void setUsers() {
-    //     users.add(new User(String.valueOf(users.size() + 1), "DAO THAI", 100000,"thai1", "123"));
-    // }
-
-
-
-
+    private double debt;
 
     Scanner sc = new Scanner(System.in);
 
@@ -28,14 +19,17 @@ public class Account {
 
     }
 
-    public Account(long account_number, String account_name, double balance,String username, String password) {
+    public Account(long account_number, String account_name, double balance,double debt,String username, String password) {
         this.account_number = account_number;
         this.account_name = account_name;
         this.balance = balance;
         this.password = password;
         this.username = username;
+        this.debt=debt;
         
     }
+   
+
     //gửi tiền vào tài khoản
       public void deposit() {
         double amount;
@@ -60,20 +54,55 @@ public class Account {
 		}
     }
     public void loan(){
+        double amount;
+        System.out.println("Nhập số tiền muốn vay");
+        amount =sc.nextDouble();
+        if(amount>=0){
+            balance += amount;
+            setDebt(amount);
+            System.out.println("Bạn đã vay "+amount);
+
+        }
+        else{
+            System.out.println("Số tiền nhập vào không hợp lệ!");
+        }
+        
+
+    }
+    public void pay(){
+        if(debt<=0){
+            System.out.println("Bạn không nợ");
+        }
+        if(balance < debt && debt>0){
+            System.out.println("Tài khoản không đủ để trả nợ");
+        }
+        if(balance>=debt && debt>0){
+            balance -= debt;
+            System.out.println("Đã trả nợ ");
+            setDebt(0);
+        }
+       
 
     }
     public void display() {
         System.out.println("---------------------------------");
+        System.out.println("::THÔNG TIN TÀI KHOẢN::");
 		System.out.println("Id: " + account_number);
 		System.out.println("Name: " + account_name);
         System.out.println("Balance: " + balance);
+        System.out.println("Debt: " + debt);
         System.out.println("---------------------------------");
 	}
     
 
 
 
-
+    public void setDebt(double debt) {
+        this.debt = debt;
+    }
+    public double getDebt() {
+        return debt;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
