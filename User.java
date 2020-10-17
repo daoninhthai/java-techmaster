@@ -1,13 +1,19 @@
 public class User extends Account{
     private String name;
     private String cmt;
+    
 
-    public User(long account_number, String account_name, double balance, String password, String name, String cmt) {
-        super(account_number, account_name, balance, password);
+
+    public User(){
+
+    }
+    public User(long account_number, String account_name, double balance,String username, String password, String name, String cmt) {
+        super(account_number, account_name, balance,username, password);
         this.name = name;
         this.cmt = cmt;
     }
-
+   
+    
     public String getName() {
         return name;
     }
@@ -23,7 +29,10 @@ public class User extends Account{
     public void setCmt(String cmt) {
         this.cmt = cmt;
     }
-    
+    public void display(){
+        super.display();
+        
+    }
 
     
 }

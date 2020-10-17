@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -8,7 +9,18 @@ public class Account {
     private long account_number;
     private String account_name;
     private double balance = 0;//số dư
+    private String username;
     private String password;
+    // ArrayList<User> users;
+    
+    
+    // public void setUsers() {
+    //     users.add(new User(String.valueOf(users.size() + 1), "DAO THAI", 100000,"thai1", "123"));
+    // }
+
+
+
+
 
     Scanner sc = new Scanner(System.in);
 
@@ -16,11 +28,12 @@ public class Account {
 
     }
 
-    public Account(long account_number, String account_name, double balance, String password) {
+    public Account(long account_number, String account_name, double balance,String username, String password) {
         this.account_number = account_number;
         this.account_name = account_name;
         this.balance = balance;
         this.password = password;
+        this.username = username;
         
     }
     //gửi tiền vào tài khoản
@@ -43,20 +56,30 @@ public class Account {
 		if(balance >= amount) {
 			balance -= amount;		
 		}else {
-			System.out.println("That amount exceeds your current balance.");
+			System.out.println("Rút không thành công vì không có đủ tiền trong tài khoản !");
 		}
     }
+    public void loan(){
+
+    }
     public void display() {
+        System.out.println("---------------------------------");
 		System.out.println("Id: " + account_number);
 		System.out.println("Name: " + account_name);
-		System.out.println("Balance: " + balance);
+        System.out.println("Balance: " + balance);
+        System.out.println("---------------------------------");
 	}
     
 
 
 
 
-
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getUsername() {
+        return username;
+    }
     public long getAccount_number() {
         return account_number;
     }
