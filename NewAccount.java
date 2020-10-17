@@ -1,13 +1,13 @@
-public class User extends Account{
+public class NewAccount extends Account{
     private String name;
     private String cmt;
     
 
 
-    public User(){
+    public NewAccount(){
 
     }
-    public User(long account_number, String account_name,double debt, double balance,String username, String password, String name, String cmt) {
+    public NewAccount(long account_number, String account_name,double debt, double balance,String username, String password, String name, String cmt) {
         super(account_number, account_name, balance,debt,username, password);
         this.name = name;
         this.cmt = cmt;

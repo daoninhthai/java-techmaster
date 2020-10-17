@@ -175,16 +175,16 @@ public class Main {
         }
         
         if(login == 2){
-            User user = new User();
+            NewAccount newAcc = new NewAccount();
             System.out.println("Đăng ký tài khoản");
             System.out.println("---------------------------------");
             System.out.println("Nhập tên đăng nhập: ");
             String username = sc.next();
             System.out.println("Nhập tên tài khoản: ");
-            String Account_Name=sc.next();
-            user.setAccount_name(Account_Name);
+            String Account_Name = sc.next();
+            newAcc.setAccount_name(Account_Name);
             System.out.println("Nhập mật khẩu: ");
-            String password =sc.next();
+            String password = sc.next();
             System.out.println("---------------------------------");
             if(!" ".equals(username) && !" ".equals(password) && !" ".equals(Account_Name)){
                 do {
@@ -205,23 +205,23 @@ public class Main {
                     switch (choice) {
                         
                         case 1:        
-                            user.display();
+                            newAcc.display();
                             break;
                         case 2:
                             System.out.println("::NẠP TIỀN::");
-                            user.deposit();
+                            newAcc.deposit();
                             break;
                         case 3:
                             System.out.println("::RÚT TIỀN::");
-                            user.withdraw();
+                            newAcc.withdraw();
                         break;
                         case 4:
                             System.out.println("::VAY TIỀN::");
-                            user.loan();
+                            newAcc.loan();
                         break;
                         case 5:
                             System.out.println("::TRẢ NỢ::");
-                            user.pay();
+                            newAcc.pay();
                         break;
                         case 0:
                             
