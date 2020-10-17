@@ -70,6 +70,7 @@ public class Account {
 
     }
     public void pay(){
+       
         if(debt<=0){
             System.out.println("Bạn không nợ");
         }

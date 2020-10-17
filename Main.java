@@ -67,7 +67,7 @@ public class Main {
                         case 3:
                             System.out.println("Nhập số tài khoản khách hàng cần nạp tiền: ");
                             s = sc.nextLong();
-                            for (int i = 0; i < n; i++) {
+                            for (int i = 0; i < n;  i++) {
                                 d = a[i].getAccount_number();
                                 if (s == d) {
                                     System.out.println("Bạn chọn tài khoản: " + d);
