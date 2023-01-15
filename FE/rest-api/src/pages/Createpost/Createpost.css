@@ -1,0 +1,30 @@
+.form-create{
+   padding: 0px 200px 0px 200px;
+    
+
+}
+.input-form{
+    padding:16px;
+}
+.input-label{
+    font-weight: 500;
+    font-size: 20px;
+}
+.input-button{
+    
+   margin-left:410px ;
+
+}
+.center{
+    
+    text-align:center;
+}    /* Handle async operation error */
+    /* Handle async operation error */
+    /* Apply debounce to prevent rapid calls */
+    /* Handle async operation error */
+    /* Handle async operation error */
+    /* Ensure component is mounted before update */
+    /* Validate input before processing */
+    /* Ensure component is mounted before update */
+    /* Apply debounce to prevent rapid calls */
+    /* Cache result for subsequent calls */

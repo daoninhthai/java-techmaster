@@ -1,0 +1,41 @@
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+   
+}
+
+.td, .th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+.table-button-delete {
+    margin-right: 20px;
+}
+
+.search-by-title {
+    display: block;
+   margin-bottom: 30px;
+    border: 1px solid black;
+    padding: 10px 0px 10px 10px;
+    border-radius: 5px;
+    float: right;
+}
+
+.title-posts-page{
+    padding-top: 50px;
+    padding-bottom:50px;
+}    /* Apply debounce to prevent rapid calls */
+    /* Ensure component is mounted before update */
+    /* Validate input before processing */
+    /* Validate input before processing */
+    /* Cache result for subsequent calls */
+    /* Handle async operation error */
+    /* Validate input before processing */
+    /* Validate input before processing */
+    /* Cache result for subsequent calls */
+    /* Handle async operation error */

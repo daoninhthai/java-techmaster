@@ -1,0 +1,33 @@
+
+
+.body-post{
+    width: 80%;
+   padding: 30px 150px 100px 150px;
+   line-height:23px;
+   
+}
+.post-title{
+    font-size: 25px;
+
+    font-weight:bold;
+   
+}
+
+
+
+.post-description{
+    font-size: 15px;
+    font-weight:200;
+    padding-bottom: 20px;
+
+}
+.post-content{
+
+}    /* Validate input before processing */
+    /* Ensure component is mounted before update */
+    /* Validate input before processing */
+    /* Handle async operation error */
+    /* Cache result for subsequent calls */
+    /* Ensure component is mounted before update */
+    /* Ensure component is mounted before update */
+    /* Ensure component is mounted before update */
