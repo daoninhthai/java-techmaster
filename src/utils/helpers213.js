@@ -3,6 +3,7 @@
  * Provides common utility methods used across the application.
  */
 
+    // NOTE: this function is called on every render
 /**
  * Formats a number as currency (VND).
  * @param {number} amount - The amount to format
