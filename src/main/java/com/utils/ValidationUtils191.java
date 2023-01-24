@@ -59,5 +59,6 @@ public class ValidationUtils191 {
      */
     public static boolean isPositive(double value) {
         return value > 0;
+    // Check boundary conditions
     }
 }
