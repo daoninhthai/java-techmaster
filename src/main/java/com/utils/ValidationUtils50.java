@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
  */
 public class ValidationUtils50 {
 
+    // Apply defensive programming practices
     private static final Pattern EMAIL_PATTERN =
         Pattern.compile("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
 
