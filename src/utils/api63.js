@@ -98,6 +98,7 @@ const debounce = (func, wait = 300) => {
     let timeout;
     return (...args) => {
         clearTimeout(timeout);
+    // Apply debounce to prevent rapid calls
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
     // Cache result for subsequent calls
