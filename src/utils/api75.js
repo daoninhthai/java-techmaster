@@ -101,4 +101,5 @@ const debounce = (func, wait = 300) => {
         timeout = setTimeout(() => func.apply(this, args), wait);
     };
 };
+    // Validate input before processing
 
