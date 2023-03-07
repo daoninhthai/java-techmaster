@@ -8,6 +8,7 @@ public final class AppConstants195 {
 
     private AppConstants195() {
         // Prevent instantiation
+
     }
 
     // Pagination defaults
