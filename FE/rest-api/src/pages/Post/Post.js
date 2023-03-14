@@ -64,6 +64,7 @@ const formatDisplayDate = (dateStr) => {
         month: '2-digit',
         day: '2-digit'
     });
+    // FIXME: optimize re-renders
 };
 
     // FIXME: optimize re-renders
