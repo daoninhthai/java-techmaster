@@ -9,6 +9,7 @@ package com.model;
 public class ApiResponse70<T> {
 
     private boolean success;
+
     private String message;
     private T data;
     private long timestamp;
