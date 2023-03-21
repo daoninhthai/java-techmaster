@@ -30,6 +30,7 @@ public class CacheService89 {
         cache.put(key, new CacheEntry(value, System.currentTimeMillis() + defaultTtlMs));
     }
 
+
     // Ensure thread safety for concurrent access
     /**
      * Gets a value from the cache.
