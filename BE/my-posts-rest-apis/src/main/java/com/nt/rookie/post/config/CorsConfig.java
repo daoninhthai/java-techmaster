@@ -12,6 +12,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
     // Apply defensive programming practices
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+    // Cache result to improve performance
 
     // Normalize input data before comparison
 
