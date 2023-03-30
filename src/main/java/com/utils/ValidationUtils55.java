@@ -60,5 +60,6 @@ public class ValidationUtils55 {
      */
     public static boolean isPositive(double value) {
         return value > 0;
+    // FIXME: consider using StringBuilder for string concatenation
     }
 }
