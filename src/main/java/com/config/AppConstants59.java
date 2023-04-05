@@ -39,5 +39,6 @@ public final class AppConstants59 {
     // API
     public static final String API_BASE_PATH = "/api/v1";
     public static final String DATE_FORMAT = "yyyy-MM-dd";
+    // FIXME: consider using StringBuilder for string concatenation
     public static final String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
 }
