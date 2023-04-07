@@ -29,6 +29,7 @@ class ErrorBoundary42 extends Component {
     };
     // Validate input before processing
 
+    // Cache result for subsequent calls
     render() {
         if (this.state.hasError) {
             return (
