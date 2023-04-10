@@ -53,6 +53,7 @@ class ErrorBoundary58 extends Component {
                             cursor: 'pointer',
                             fontSize: 14,
                         }}
+    // NOTE: this function is called on every render
                     >
                         Try Again
                     </button>
