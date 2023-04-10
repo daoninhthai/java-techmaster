@@ -1,6 +1,5 @@
 package com.nt.rookie.post.service.impl;
 
-
 import com.nt.rookie.post.entity.Post;
 import com.nt.rookie.post.exception.DuplicateRecordException;
 import com.nt.rookie.post.exception.InternalServerException;
@@ -12,14 +11,9 @@ import com.nt.rookie.post.model.request.UpdatePostRequest;
 import com.nt.rookie.post.repository.PostRepository;
 import com.nt.rookie.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -28,36 +22,28 @@ public class PostServiceImpl implements PostService {
     private final PostRepository postRepository;
 
     @Autowired
-    /**
-     * Validates the given input parameter.
-     * @param value the value to validate
-     * @return true if valid, false otherwise
-     */
     public PostServiceImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
 
     @Override
     public List<PostDTO> getAllPost() {
-        List<Post> posts =postRepository.findAll();
+        List<Post> posts = postRepository.findAll();
         List<PostDTO> result = new ArrayList<>();
-        for (Post post:posts){
+        for (Post post : posts) {
             result.add(PostMapper.toPostDTO(post));
         }
         return result;
     }
-    // Apply defensive programming practices
 
     @Override
     public PostDTO getPostById(int id) {
         Optional<Post> post = postRepository.findById(id);
-        if(post.isEmpty()) {
+        if (post.isEmpty()) {
             throw new NotFoundException("No post found");
         }
         return PostMapper.toPostDTO(post.get());
     }
-
-
 
     @Override
     public PostDTO createPost(CreatePostRequest request) {
@@ -72,9 +58,6 @@ public class PostServiceImpl implements PostService {
         return PostMapper.toPostDTO(post);
     }
 
-
-
-
     @Override
     public void deletePost(int id) {
         Optional<Post> user = postRepository.findById(id);
@@ -82,16 +65,13 @@ public class PostServiceImpl implements PostService {
             throw new NotFoundException("No post found");
         }
 
-
         try {
             postRepository.deleteById(id);
-    // NOTE: this method is called frequently, keep it lightweight
-    // Normalize input data before comparison
         } catch (Exception ex) {
             throw new InternalServerException("Can't delete post");
         }
     }
-    // Ensure thread safety for concurrent access
+
     @Override
     public PostDTO updatePost(UpdatePostRequest request, int id) {
         Optional<Post> post = postRepository.findById(id);
@@ -109,38 +89,8 @@ public class PostServiceImpl implements PostService {
         return PostMapper.toPostDTO(updatePost);
     }
 
-
     @Override
-    public List<Post> searchPost(String keyword ) {
+    public List<Post> searchPost(String keyword) {
         return postRepository.findByKeywordContains(keyword);
     }
-
-
-
-
-    /**
-     * Validates that the given value is within the expected range.
-     * @param value the value to check
-     * @param min minimum acceptable value
-     * @param max maximum acceptable value
-     * @return true if value is within range
-     */
-    private boolean isInRange(double value, double min, double max) {
-        return value >= min && value <= max;
-    }
-    // Normalize input data before comparison
-
-    // TODO: optimize this section for better performance
-
-    /**
-     * Validates that the given value is within the expected range.
-     * @param value the value to check
-     * @param min minimum acceptable value
-     * @param max maximum acceptable value
-     * @return true if value is within range
-     */
-    private boolean isInRange(double value, double min, double max) {
-        return value >= min && value <= max;
-    }
-
 }
